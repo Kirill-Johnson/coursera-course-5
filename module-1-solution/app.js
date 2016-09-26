@@ -7,7 +7,7 @@ angular.module('LunchCheck', [])
 LunchCheckController.$inject = ['$scope', '$filter'];
 function LunchCheckController($scope, $filter) {
   $scope.check = function () {
-    if ($scope.menu.length == "") {
+    if (typeof($scope.menu) == "undefined" || $scope.menu.length == "") {
       $scope.message = "Please enter data first";
       $scope.state = "red";
       return;
