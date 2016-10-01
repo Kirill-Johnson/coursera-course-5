@@ -34,26 +34,32 @@ function NarrowItDownController(MenuSearchService) {
     list.found.splice(itemIndex, 1); };
 }
 
-  MenuSearchService.$inject = ['$http'];
-  function MenuSearchService($http){
-    var service = this;
+MenuSearchService.$inject = ['$http'];
+function MenuSearchService($http, ApiBasePath) {
+  var service = this;
+  var allItems = [];
+  service.getFullMenu = function () {
+    var response = $http({ method: "GET", url: "https://davids-restaurant.herokuapp.com/menu_items.json"});
+    return response;
+  }
 
-    service.getMatchedMenuItems = function(searchTerm){
-      var response = $http({
-        method: "GET",
-        url: "https://davids-restaurant.herokuapp.com/menu_items.json"
-      }).then(function (response){
-        var result = response.data.menu_items;
-        console.log(result.length);
-        var foundItems = [];
-        
-        for (var i=0; i<result.length; i++){
-          if (result[i].description.toLowerCase().indexOf(searchTerm) !== -1){
-            foundItems.push(result[i]);
-          }
+  service.getMatchedMenuItems = function (searchTerm) {
+    var service = this;
+    var allItems = [];
+
+    var promise = service.getFullMenu();
+    promise.then(function (response) {
+        allItems = response.data.menu_items;
+    }).then( function() {
+      // Filtering results
+      var i=0;
+        arr=response.data.menu_items;
+        for(i=0;i<arr.length;i++){
+        if(arr[i].description==searchTerm){
+        foundItems[i]=arr[i];
         }
       }
-    )
+    })
     .catch(function (error) {
       console.log("Something went terribly wrong.");
     });
