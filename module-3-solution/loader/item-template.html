@@ -1,8 +1,10 @@
 <div>
 <ol>
-  <li ng-repeat="item in list.found" style="margin-bottom: 5px;">
+  <li ng-repeat="item in found" style="margin-bottom: 5px;">
     {{ item.name }} | {{ item.short_name }} | {{ item.description }}. &nbsp;
-    <button ng-click="list.removeItem($index);" class="btn btn-warning btn-sm">Don't want this one!</button>
+    <button ng-click="onRemove({index: $index});" class="btn btn-warning btn-sm">Don't want this one!</button>
   </li>
 </ol>
 </div>
+
+<h2 ng-if="found.length == 0" id="message">Nothing Found.</h2>
