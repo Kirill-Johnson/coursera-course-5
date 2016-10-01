@@ -39,7 +39,7 @@ function MenuSearchService($http, ApiBasePath) {
   var service = this;
   var allItems = [];
   service.getFullMenu = function () {
-    var response = $http({ method: "GET", url: "https://davids-restaurant.herokuapp.com/menu_items.json")});
+    var response = $http({ method: "GET", url: "https://davids-restaurant.herokuapp.com/menu_items.json"});
     return response;
   }
 
