@@ -55,8 +55,8 @@ function MenuSearchService($http, ApiBasePath) {
       // Filtering results
       var i=0;
         arr=response.data.menu_items;
-        for(i=0;i<arr.length;i++){
-        if(arr[i].description==searchTerm){
+        for(i=0; i<arr.length; i++){
+        if(arr[i].description == searchTerm){
         foundItems[i]=arr[i];
         }
       }
