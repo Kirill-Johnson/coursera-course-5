@@ -66,9 +66,6 @@ function MenuSearchService($http, ApiBasePath) {
     });
 
     return promise;
-
   }
-
 }
-
 })();
