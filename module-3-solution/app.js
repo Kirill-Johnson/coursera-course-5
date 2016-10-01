@@ -12,8 +12,8 @@ function FoundItemsDirective() {
     templateUrl: 'loader/item-template.html',
     scope: { found: '<', onRemove: '&' },
     controller: NarrowItDownController,
-    controllerAs: 'list',
-    bindToController: true
+    bindToController: true,
+    controllerAs: 'list'
   };
 
   return ddo;
@@ -26,17 +26,13 @@ function NarrowItDownController(MenuSearchService) {
   list.searchMenu = function(searchTerm){
     var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
     promise.then(function (response) {
-      list.found = response.data.menu_items;
-    })
+      list.found = response.data.menu_items; })
     .catch(function (error) {
-      console.log("Something went terribly wrong.");
-    });
+      console.log("Something went terribly wrong."); });
   }
 
   list.removeItem = function (itemIndex) {
-    list.found.splice(itemIndex, 1);
-  };
-
+    list.found.splice(itemIndex, 1); };
 }
 
 MenuSearchService.$inject = ['$http', 'ApiBasePath'];
@@ -44,10 +40,7 @@ function MenuSearchService($http, ApiBasePath) {
   var service = this;
   var allItems = [];
   service.getFullMenu = function () {
-    var response = $http({
-      method: "GET",
-      url: (ApiBasePath + "/menu_items.json")
-    });
+    var response = $http({ method: "GET", url: (ApiBasePath + "/menu_items.json")});
     return response;
   }
 
