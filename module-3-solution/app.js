@@ -22,7 +22,7 @@ angular.module('NarrowItDownApp', [])
   service.getMatchedMenuItems = function(searchTerm){
   var response = $http({ method: "GET", url: "https://davids-restaurant.herokuapp.com/menu_items.json" }).then(function (response){
    var result = response.data.menu_items;
-   console.log(result.length);
+   console.log("Total items in menu:" + result.length);
    var foundItems = [];
 
     for (var i=0; i<result.length; i++){
