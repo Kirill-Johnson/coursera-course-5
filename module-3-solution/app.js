@@ -29,7 +29,6 @@ angular.module('NarrowItDownApp', [])
      if (result[i].description.toLowerCase().indexOf(searchTerm) !== -1){
      foundItems.push(result[i]); } }
 
-   console.log(foundItems);
     return foundItems; }).catch(function(error){ return error; });
 
     return response;
