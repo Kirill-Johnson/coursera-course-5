@@ -11,7 +11,7 @@ angular.module('NarrowItDownApp', [])
    var list = this;
     list.search = function (){ if (typeof(list.searchText) == "undefined" || list.searchText == ""){ list.found = []; }
      else { var foundItems = MenuSearchService.getMatchedMenuItems(list.searchText.toLowerCase());
-      foundItems.then(function (response){ console.log("Response: ", response); list.found = response; });
+      foundItems.then(function (response){ list.found = response; });
      } }
     list.removeItem = function (index){ list.found.splice(index, 1); }}
 
