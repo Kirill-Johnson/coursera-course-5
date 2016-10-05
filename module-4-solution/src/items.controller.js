@@ -8,5 +8,5 @@ angular.module('MenuApp')
  function MenuItemsController(items) {
   var controller = this;
   controller.items = items.menu_items;
-  console.log("Items in category: " + controller.items); };
+ };
 })();
