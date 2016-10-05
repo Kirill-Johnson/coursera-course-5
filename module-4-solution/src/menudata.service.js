@@ -1,8 +1,8 @@
 (function () {
 'use strict';
-angular.module('data', [])
+angular.module('data')
 .service('MenuDataService', MenuDataService);
- MenuDataService.$inject = ['$http', 'ApiBasePath'];
+ MenuDataService.$inject = ['$http'];
  function MenuDataService($http) {
   var service = this;
   service.getAllCategories = function () {
