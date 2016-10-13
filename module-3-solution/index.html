@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <title>Narrow Down Your Menu Choice — AngularJS</title>
+    <meta name="description" content="AngularJS. Week 3 — Promises, Ajax, and Custom Directives.">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- AngularJS imported: -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+<body ng-app="NarrowItDownApp">
+  <div class="container">
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
+
+    <div ng-controller='NarrowItDownController as list'>
+      <div class="form-group">
+        <input type="text" placeholder="Search Term" class="form-control" ng-model="list.searchText">
+      </div>
+      <div class="form-group narrow-button">
+        <button class="btn btn-primary" ng-click="list.search()">Narrow It Down For Me!</button>
+      </div>
+<br><br><hr>
+
+    <!-- Bonus loader -->
+    <items-loader-indicator></items-loader-indicator>
+
+    <!-- found-items should be implemented as a component -->
+    <found-items found="list.found" on-remove="list.removeItem(index)"></found-items>
+  </div>
+
+</body>
+</html>
