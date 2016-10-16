@@ -4,8 +4,8 @@
 angular.module('LunchCheck', [])
 .controller('LunchCheckController', LunchCheckController);
 
-LunchCheckController.$inject = ['$scope', '$filter'];
-function LunchCheckController($scope, $filter) {
+LunchCheckController.$inject = ['$scope'];
+function LunchCheckController($scope) {
   $scope.check = function () {
     if (typeof($scope.menu) == "undefined" || $scope.menu.length == "") {
       $scope.message = "Please enter data first";
