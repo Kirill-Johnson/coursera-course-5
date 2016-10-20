@@ -1,0 +1,27 @@
+<div class="container">
+  <h2 id="sign-up-title" class="text-center">My Info</h2>
+
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <p class="text-center" ng-if="myInfoCtrl.noProfile">Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></p>
+      <div ng-if="!myInfoCtrl.noProfile">
+        <ul>
+          <li>First name: {{myInfoCtrl.userProfile.firstName}}</li>
+          <li>Last name: {{myInfoCtrl.userProfile.lastName}}</li>
+          <li>Email address: {{myInfoCtrl.userProfile.email}}</li>
+          <li>Phone number: {{myInfoCtrl.userProfile.phone}}</li>
+          <li>Favorite dish: 
+            <ul>
+              <li>Name: {{myInfoCtrl.userProfile.favoriteDish.name}}</li>
+              <li>Description: {{myInfoCtrl.userProfile.favoriteDish.description}}</li>
+              <li>
+                <img ng-src="https://course5-server.herokuapp.com/images/{{myInfoCtrl.userProfile.favoriteDish.number}}.jpg" alt="{{myInfoCtrl.userProfile.favoriteDish.name}}" />
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
